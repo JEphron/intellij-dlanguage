@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         idea: ['2020.2']
-        jdk: [ '1.8' ]
+        jdk: [ '1.8', '11' ]
         #os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
@@ -29,3 +29,8 @@ jobs:
       env:
         ORG_GRADLE_PROJECT_ideaVersion: ${{ matrix.idea }}
       run: ./gradlew buildPlugin
+
+    - name: verifyPlugin
+      env:
+          ORG_GRADLE_PROJECT_ideaVersion: ${{ matrix.idea }}
+      run: ./gradlew verifyPlugin

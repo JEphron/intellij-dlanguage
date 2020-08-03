@@ -47,8 +47,10 @@ cobertura.coverageExcludes = [ '.*de.halirutan.mathematica.*', '.*uk.co.cwspence
 
 
 allprojects {
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+    disableAutoTargetJvm()
+    // Setting source and target JDK to JavaVersion.VERSION_1_8 breaks the ability to build with JDK 11
+//    sourceCompatibility = JavaVersion.VERSION_1_8
+//    targetCompatibility = JavaVersion.VERSION_1_8
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
